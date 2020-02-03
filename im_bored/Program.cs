@@ -8,7 +8,7 @@ namespace im_bored
         {
             Console.WriteLine("Hello World!");
 
-            Create.CreateFile();
+            Create.CreateFile("emil");
          }
     }
 }
