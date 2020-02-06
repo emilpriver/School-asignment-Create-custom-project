@@ -20,7 +20,7 @@ namespace im_bored
             if(File.Exists(path)){
                 Console.WriteLine("Database initialized");
             } else {
-                Console.WriteLine("Database not fouind, creating..");
+                Console.WriteLine("Database not found, creating..");
                 File.Create(path);
                 Console.WriteLine("Created database");
             }
