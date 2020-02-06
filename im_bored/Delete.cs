@@ -1,8 +1,7 @@
-﻿using System;
-
+using System;
 namespace im_bored
 {
-    public class Create
+    public class Delete
     {
         public static void CreateFile(string a)
         {
