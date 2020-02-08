@@ -1,5 +1,3 @@
-using System;
-
 namespace Delete
 {
     class Program
@@ -16,11 +14,11 @@ namespace Delete
             }
             else
             {
-                Console.WriteLine("answer + " is to be deleted");
+                Console.WriteLine(IDtoDelete + " is to be deleted");
                 var IDdelete = JSONFIL.FirstOrDefault(obj => obj["ID"].Value<int>() == IDtoDelete);
 
                 JSONFIL.Remove(IDdelet);
-                
+
                 //bekräfta delete? måste ha searchfunktion som returnerar IDtoDelete true or false
                 // Kommando för att återgå till början?
             }
