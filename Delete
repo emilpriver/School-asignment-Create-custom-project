@@ -7,16 +7,17 @@ namespace Delete
         static void Main()
         {
             Console.WriteLine("Här kan man radera objekt från databasen, för att radera skriv objektets ID och om ingen radering önskas skriv 0 : ");
-            int answer = int.Parse(Console.ReadLine());
+            int IDtoDelete = int.Parse(Console.ReadLine());
 
-            if (answer == 0)
+            if (IDtoDelete == 0)
             {
                 Console.WriteLine("Ingen radering önskas, återgår till huvudmeny");
+                //återgå till meny?
             }
             else
             {
                 Console.WriteLine("Raderinger utav " + answer + " önskas, objekt eftersöks...");
-                var IDdelete = JSONFIL.FirstOrDefault(obj => obj["ID"].Value<int>() == ID);
+                var IDdelete = JSONFIL.FirstOrDefault(obj => obj["IDtoDelete"].Value<int>() == IDtoDelete);
 
                 JSONFIL.Remove(IDdelet);
 
