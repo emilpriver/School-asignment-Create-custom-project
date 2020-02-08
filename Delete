@@ -20,7 +20,9 @@ namespace Delete
                 var IDdelete = JSONFIL.FirstOrDefault(obj => obj["ID"].Value<int>() == IDtoDelete);
 
                 JSONFIL.Remove(IDdelet);
-
+                
+                //bekräfta delete? måste ha searchfunktion som returnerar IDtoDelete true or false
+                // Kommando för att återgå till början?
             }
         }
     }
