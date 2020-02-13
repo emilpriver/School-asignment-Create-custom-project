@@ -5,77 +5,92 @@ using System.Linq;
 
 namespace im_bored
 {
+    /**
+    * This is the database class.
+    * This class handels everything with database file. 
+    * Function is:
+    * - Update row
+    * - Delete row(in work)
+    * - Read database and return the database in a format that is simple to work with.
+    * - Write to databse.
+    */
     class Database
     {
+        // function that check database and create it if database dont exists
         public static void InitDatabase()
         {
-            GetDatabase();
+            // get path to database
+            string path = GetDatabasePath();
+            // Check if file exists
+            if (File.Exists(path))
+            {
+                Console.WriteLine("Database initialized");
+            }
+            else
+            {
+                Console.WriteLine("Database not found, creating..");
+                // if file dont exists, create it.
+                File.Create(path);
+                Console.WriteLine("Created database");
+            }
         }
 
+        // Function that returns full path to database file
         public static string GetDatabasePath()
         {
             return Path.GetFullPath("database/main.txt");
         }
-
-        public class Schema
-        {
-            public int id { get; set; }
-            public string title { get; set; }
-            public string genre { get; set; }
-            public string category { get; set; }
-            public int length { get; set; }
-            public string used { get; set; }
-        }
-
-        public static Schema[] ReadDatabaseArray() 
+        
+        public static Schema.DatabaseItem[] ReadDatabaseArray() 
         {
             string[] lines = File.ReadAllLines(GetDatabasePath()).ToArray();
-            Schema[] array;
-            array = new Schema[lines.Count()];
+            Schema.DatabaseItem[] array;
+            array = new Schema.DatabaseItem[lines.Count()];
 
             int index = 0;
             foreach (string item in lines)
             {
-                // If line is empty, skip the line
-                if (item.Trim() == "")
+                // if line is not empty, run the code
+                if (item.Trim() != "")
                 {
-                    continue;
+                    // Create new Database Schema to append information on.
+                    Schema.DatabaseItem subData = new Schema.DatabaseItem { };
+                    string[] splitedData = item.Split(";");
+
+                    // Build object
+                    subData.id = Convert.ToInt32(splitedData[0]);
+                    subData.title = splitedData[1].ToString();
+                    subData.genre = splitedData[2].ToString();
+                    subData.category = splitedData[3].ToString();
+                    subData.length = Convert.ToInt32(splitedData[4]);
+                    subData.used = splitedData[5].ToString();
+
+                    // Append object to array
+                    array[index] = subData;
+
+                    // Higher the value of the index
+                    ++index;
                 }
-                 
-                // Create new Database Schema to append information on.
-                Schema subData = new Schema { };
-                string[] splitedData = item.Split(";");
-
-                // Build object
-                subData.id = Convert.ToInt32(splitedData[0]);
-                subData.title = splitedData[1].ToString();
-                subData.genre = splitedData[2].ToString();
-                subData.category = splitedData[3].ToString();
-                subData.length = Convert.ToInt32(splitedData[4]);
-                subData.used = splitedData[5].ToString();
-
-                // Append object to array
-                array[index] = subData;
-
-                // Higher the value of the index
-                ++index;
             }
 
             return array;
         }
 
+        // This function is made to eazy be able to write a new line to datbase file we use.
         public static void WriteToDatabase(string title, string genre, string category, int length, bool used)
         {
+            // Read database and return it to the data abariable.
+            Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
+
             int lastIndexInDatabse = 0;
-
-            Schema[] data = Database.ReadDatabaseArray();
-            foreach (Schema item in data)
-            {
-                lastIndexInDatabse = item.id;
+            if(data.Length > 0) {
+                lastIndexInDatabse = data[data.Count() - 1].id;
             }
-
+            
+            // open database file and write information to database by using File.AppendText()
             using (StreamWriter sw = File.AppendText(GetDatabasePath()))
             {
+                // Write the new line
                 sw.WriteLine(
                     String.Join(
                         Environment.NewLine,
@@ -86,18 +101,50 @@ namespace im_bored
 
         }
 
-        private static void GetDatabase()
+        public static void ChangeObjectInDatabase(int id, string type, string value)
         {
-            string path = GetDatabasePath();
-            if (File.Exists(path))
+            // Read database and return it to the data abariable.
+            Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
+            
+            int index = 0;
+            foreach(Schema.DatabaseItem item in data)
             {
-                Console.WriteLine("Database initialized");
+                if(item.id == id) {
+                    switch (type)
+                    {
+                        case "category":
+                            data[index].category = value;
+                            break;
+                        case "genre":
+                            data[index].genre = value;
+                            break;
+                        case "title":
+                            data[index].title = value;
+                            break;
+                        case "length":
+                            data[index].length = Convert.ToInt32(value);
+                            break;
+                        default:
+                            Console.WriteLine("Please provide type argument. Choose one of: category,genre,title,length");
+                            break;
+                    }
+
+                }
+                ++index;
             }
-            else
+
+            // Clear database file before write to it
+            File.WriteAllText(GetDatabasePath(), String.Empty);
+
+            foreach(Schema.DatabaseItem item in data)
             {
-                Console.WriteLine("Database not found, creating..");
-                File.Create(path);
-                Console.WriteLine("Created database");
+                WriteToDatabase(
+                    item.title,
+                    item.genre,
+                    item.category,
+                    item.length,
+                    Convert.ToBoolean(item.used)
+                );
             }
         }
     }
