@@ -25,7 +25,7 @@ namespace im_bored
             // }
 
             // Update object in database
-            Database.Delete(2);
+            // Database.Delete(2);
 
 
 
