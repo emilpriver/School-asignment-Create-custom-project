@@ -146,6 +146,28 @@ namespace im_bored
                     Convert.ToBoolean(item.used)
                 );
             }
+        } 
+
+
+        public static void Delete(int id)
+        {
+            Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
+
+            var newData = data.Where((val) => val.id != id).ToArray();
+
+            // Clear database file before write to it
+            File.WriteAllText(GetDatabasePath(), String.Empty);
+
+            foreach (Schema.DatabaseItem item in newData)
+            {
+                WriteToDatabase(
+                    item.title,
+                    item.genre,
+                    item.category,
+                    item.length,
+                    Convert.ToBoolean(item.used)
+                );
+            }
         }
     }
 }

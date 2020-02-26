@@ -25,7 +25,10 @@ namespace im_bored
             // }
 
             // Update object in database
-            // Database.ChangeObjectInDatabase(2, "title", "Rasmus e bäst");
+            Database.Delete(2);
+
+
+
         }
     }
 }
