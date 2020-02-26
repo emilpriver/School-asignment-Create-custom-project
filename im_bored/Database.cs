@@ -43,6 +43,12 @@ namespace im_bored
         
         public static Schema.DatabaseItem[] ReadDatabaseArray() 
         {
+            // example of using this function inside progra:
+            // Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
+            // foreach(Schema.DatabaseItem item in data) {
+            //     Console.WriteLine(item.title);
+            // }
+            
             string[] lines = File.ReadAllLines(GetDatabasePath()).ToArray();
             Schema.DatabaseItem[] array;
             array = new Schema.DatabaseItem[lines.Count()];
