@@ -1,1 +1,6 @@
-1;Martin e bäst;Action;Movie;120;True
+1;Batman;Action;Movie;120;true
+2;Superman;Action;Movie;120;false
+3;Spiderman;Action;Movie;120;false
+4;Finding the Force of the Star Wars Franchise: Fans, Merchandise, & Critics;Action;Book;284;false
+5;Star Wars;Action;Movie;120;false
+6;The witcher 3;Action;Game;30;true

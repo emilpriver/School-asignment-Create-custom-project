@@ -9,26 +9,11 @@ namespace im_bored
         {
             Console.WriteLine("Hello World!");
 
-            // init databas när vi laddar programmet
+            // init databas when we load the program
             Database.InitDatabase();
-            Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
 
-            // foreach(Schema.DatabaseItem item in data)
-            // {
-            //     Console.WriteLine(item.used);
-            // }
-
-            // This loop is used for testing writing to database
-            // for (int i = 0; i < 100; i++)
-            // {
-            //     Database.WriteToDatabase("Test", "Test", "Test", 120, true);
-            // }
-
-            // Update object in database
-            // Database.Delete(2);
-
-
-
+            // create init naviagtion to ask user what the they want to do
+            Navigation.navigate(true);
         }
     }
 }
