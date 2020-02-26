@@ -1,6 +1,1 @@
 1;Martin e bäst;Action;Movie;120;True
-2;Rasmus e bäst;Action;Movie;120;False
-3;Emil e bäst;Action;Movie;120;False
-4;Finding the Force of the Star Wars Franchise: Fans, Merchandise, & Critics;Action;Book;284;False
-5;Emil e bäst;Action;Movie;120;False
-6;The witcher 3;Action;Game;30;True
