@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace im_bored
 {
@@ -16,6 +15,11 @@ namespace im_bored
             goToHome(true);
         }
 
+        public static void askToGoHome() {
+            Console.WriteLine("Redo att gå hem?");
+            Console.ReadLine();
+            goToHome(true);
+        }
          public static void goToHome(bool clear)
         {
             if(clear) {
@@ -31,10 +35,10 @@ namespace im_bored
             switch (type)
             {
                 case "1":
-                    Console.WriteLine("Lista");
+                    List.main();
                     break;
                 case "2":
-                    Console.WriteLine("Söka");
+                    Search.main();
                     break;
                 case "3":
                     Console.WriteLine("Ändra");
@@ -46,8 +50,6 @@ namespace im_bored
                     Console.WriteLine("Please provide type argument. Choose one of: lista,söka");
                     break;
             }
-
-            goToHome(false);
         }
     }
 }

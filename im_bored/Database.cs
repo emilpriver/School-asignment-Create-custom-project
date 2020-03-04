@@ -68,8 +68,7 @@ namespace im_bored
                     subData.title = splitedData[1].ToString();
                     subData.genre = splitedData[2].ToString();
                     subData.category = splitedData[3].ToString();
-                    subData.length = Convert.ToInt32(splitedData[4]);
-                    subData.used = splitedData[5].ToString();
+                    subData.used = splitedData[4].ToString();
 
                     // Append object to array
                     array[index] = subData;

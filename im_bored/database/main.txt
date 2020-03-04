@@ -1,6 +1,9 @@
-1;Batman;Action;Movie;120;true
-2;Superman;Action;Movie;120;false
-3;Spiderman;Action;Movie;120;false
-4;Finding the Force of the Star Wars Franchise: Fans, Merchandise, & Critics;Action;Book;284;false
-5;Star Wars;Action;Movie;120;false
-6;The witcher 3;Action;Game;30;true
+1;Batman;Action;Movie;true
+2;Superman;Action;Movie;false
+3;Spiderman;Action;Movie;false
+4;Finding the Force of the Star Wars Franchise: Fans, Merchandise, & Critics;Action;Book;false
+5;Star Wars;Action;Movie;false
+6;The witcher 3;Action;Game;true
+7;The action 3;Drama;Drama;true
+8;The witcher 3;Action;Game;true
+9;The witcher 3;Drama;action;true
