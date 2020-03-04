@@ -31,6 +31,8 @@ namespace im_bored
             Console.WriteLine("     2. Söka");
             Console.WriteLine("     3. Ändra");
             Console.WriteLine("     4. Ta bort");
+            Console.WriteLine("     5. Skapa");
+            Console.WriteLine("     6. Manual");
             string type = Console.ReadLine();
             switch (type)
             {
@@ -46,8 +48,15 @@ namespace im_bored
                 case "4":
                     Console.WriteLine("Ta bort");
                     break;
+                case "5":
+                    Console.WriteLine("Skapa");
+                    break;
+                case "6":
+                    Console.WriteLine("Manual");
+                    break;
                 default:
-                    Console.WriteLine("Please provide type argument. Choose one of: lista,söka");
+                    Console.WriteLine("Välj utav valen ovan");
+                    goToHome(false);
                     break;
             }
         }
