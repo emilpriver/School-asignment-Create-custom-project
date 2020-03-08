@@ -169,5 +169,19 @@ namespace im_bored
                 );
             }
         }
+
+        public static void listObjects() {
+            Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
+
+            Utils.PrintLine();
+            Utils.PrintRow("ID", "Title", "Kategori", "Genre");
+            Utils.PrintLine();
+
+            foreach(Schema.DatabaseItem item in data)
+            {
+                Utils.PrintRow(item.id.ToString(), item.title, item.category, item.genre);
+            }
+            Utils.PrintLine();
+        }
     }
 }

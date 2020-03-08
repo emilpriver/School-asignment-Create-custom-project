@@ -6,7 +6,7 @@ namespace im_bored
     {
         public static void main()
         {   
-            listObjects();
+            Database.listObjects();
 
             Console.WriteLine("Vilket objekt vill du ändra? Skriv ID på objektet");
             string object_id = Console.ReadLine();
@@ -23,20 +23,6 @@ namespace im_bored
             Database.ChangeObjectInDatabase(Convert.ToInt32(object_id), object_type, object_value);
             
             Program.askToGoHome();
-        }
-
-        public static void listObjects() {
-            Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
-
-            Utils.PrintLine();
-            Utils.PrintRow("ID", "Title", "Kategori", "Genre");
-            Utils.PrintLine();
-
-            foreach(Schema.DatabaseItem item in data)
-            {
-                Utils.PrintRow(item.id.ToString(), item.title, item.category, item.genre);
-            }
-            Utils.PrintLine();
         }
     }
 }
