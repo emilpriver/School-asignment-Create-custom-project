@@ -46,7 +46,7 @@ namespace im_bored
                     Change.main();
                     break;
                 case "4":
-                    Console.WriteLine("Ta bort");
+                    Delete.main();
                     break;
                 case "5":
                     Console.WriteLine("Skapa");

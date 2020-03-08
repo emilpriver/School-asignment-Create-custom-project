@@ -1,9 +1,8 @@
 1;Batman;Action;Movie;True
 2;Superman;hej;Movie;False
 3;Spiderman;Action;Movie;False
-4;Finding the Force of the Star Wars Franchise: Fans, Merchandise, & Critics;Action;Book;False
-5;Star Wars;Action;Movie;False
-6;The witcher 3;Action;Game;True
-7;The action 3;Drama;Drama;True
-8;The witcher 3;Action;Game;True
-9;The witcher 3;Drama;action;True
+4;Star Wars;Action;Movie;False
+5;The witcher 3;Action;Game;True
+6;The action 3;Drama;Drama;True
+7;The witcher 3;Action;Game;True
+8;The witcher 3;Drama;action;True
