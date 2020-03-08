@@ -43,7 +43,7 @@ namespace im_bored
                     Search.main();
                     break;
                 case "3":
-                    Console.WriteLine("Ändra");
+                    Change.main();
                     break;
                 case "4":
                     Console.WriteLine("Ta bort");

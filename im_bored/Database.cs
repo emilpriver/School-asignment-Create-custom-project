@@ -82,7 +82,7 @@ namespace im_bored
         }
 
         // This function is made to eazy be able to write a new line to datbase file we use.
-        public static void WriteToDatabase(string title, string genre, string category, int length, bool used)
+        public static void WriteToDatabase(string title, string genre, string category, bool used)
         {
             // Read database and return it to the data abariable.
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
@@ -99,7 +99,7 @@ namespace im_bored
                 sw.WriteLine(
                     String.Join(
                         Environment.NewLine,
-                        $"{lastIndexInDatabse + 1};{title};{genre};{category};{length};{used}"
+                        $"{lastIndexInDatabse + 1};{title};{genre};{category};{used}"
                     )
                 );
             }
@@ -117,20 +117,17 @@ namespace im_bored
                 if(item.id == id) {
                     switch (type)
                     {
-                        case "category":
+                        case "1":
                             data[index].category = value;
                             break;
-                        case "genre":
+                        case "2":
                             data[index].genre = value;
                             break;
-                        case "title":
+                        case "3":
                             data[index].title = value;
                             break;
-                        case "length":
-                            data[index].length = Convert.ToInt32(value);
-                            break;
                         default:
-                            Console.WriteLine("Please provide type argument. Choose one of: category,genre,title,length");
+                            Console.WriteLine("Please provide type argument. Choose one of: category,genre,title");
                             break;
                     }
 
@@ -147,7 +144,6 @@ namespace im_bored
                     item.title,
                     item.genre,
                     item.category,
-                    item.length,
                     Convert.ToBoolean(item.used)
                 );
             }
@@ -169,7 +165,6 @@ namespace im_bored
                     item.title,
                     item.genre,
                     item.category,
-                    item.length,
                     Convert.ToBoolean(item.used)
                 );
             }
