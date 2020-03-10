@@ -49,7 +49,7 @@ namespace im_bored
                     Delete.main();
                     break;
                 case "5":
-                    Console.WriteLine("Skapa");
+                    Create.main();
                     break;
                 case "6":
                     Console.WriteLine("Manual");

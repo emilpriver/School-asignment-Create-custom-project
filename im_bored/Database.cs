@@ -82,7 +82,7 @@ namespace im_bored
         }
 
         // This function is made to eazy be able to write a new line to datbase file we use.
-        public static void WriteToDatabase(string title, string genre, string category, bool used)
+        public static int WriteToDatabase(string title, string genre, string category, bool used)
         {
             // Read database and return it to the data abariable.
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
@@ -104,6 +104,7 @@ namespace im_bored
                 );
             }
 
+            return lastIndexInDatabse;
         }
 
         public static void ChangeObjectInDatabase(int id, string type, string value)

@@ -6,3 +6,7 @@
 6;The action 3;Drama;Drama;True
 7;The witcher 3;Action;Game;True
 8;The witcher 3;Drama;action;True
+9;Emil;Movie;Action;False
+10;Test;Movie;Action;False
+11;Test;Movie;Test;False
+12;Orange is the new black;Serie;Action;False
