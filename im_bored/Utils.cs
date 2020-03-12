@@ -5,8 +5,7 @@ using System.Linq;
 namespace im_bored
 {
     /**
-    BEKSRIV DENNA
-
+    *  Denna funktionen används för att visa en tabell fint för användaren när dem begär  o vill se data
     */
     class Utils
     {
@@ -16,7 +15,7 @@ namespace im_bored
         {
             Console.WriteLine(new string('-', tableWidth));
         }
-
+        // denna funktion skriver ut en rad av data där vad kolumn skjiljer sig med en |
         public static void PrintRow(params string[] columns)
         {
             int width = (tableWidth - columns.Length) / columns.Length;
@@ -29,7 +28,7 @@ namespace im_bored
 
             Console.WriteLine(row);
         }
-
+        // Denna funktion sätter ett objekt i mitten genom att räkna ut hur brett objektet är
         public static string AlignCentre(string text, int width)
         {
             text = text.Length > width ? text.Substring(0, width - 3) + "..." : text;

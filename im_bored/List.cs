@@ -5,9 +5,9 @@ namespace im_bored
 {
     public class List
     {
+        // Denna funktionen låter en användare lista objekt i databasen beroende på vad användaren väljer
         public static void main()
         {   
-
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
 
             string category = askCategory();
@@ -18,10 +18,12 @@ namespace im_bored
             string genre = askGenre();
 
             if(category != "all"){
+                // filterar bort alla objekt som inte tillhör kategorin
                 data = data.Where((val) => val.category.ToLower().Contains(category.ToLower())).ToArray();
             }
 
             if(genre != ""){
+                // filtrerar bort objekt som inte tillhör genren
                 data = data.Where((val) => val.genre.ToLower().Contains(genre.ToLower())).ToArray();
             }
 

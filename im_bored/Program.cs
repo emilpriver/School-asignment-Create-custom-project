@@ -4,14 +4,15 @@ namespace im_bored
 {
     class Program
     {
+        // huvud filen som frågar användaren vad den vill göra
         public static void Main()
         {
             Console.WriteLine("Hello World!");
 
-            // init databas when we load the program
+            // kolla databasen genom att initisera den
             Database.InitDatabase();
 
-            // create init naviagtion to ask user what the they want to do
+            // fråga vad användaren vill göra.
             goToHome(true);
         }
 
@@ -50,9 +51,6 @@ namespace im_bored
                     break;
                 case "5":
                     Create.main();
-                    break;
-                case "6":
-                    Console.WriteLine("Manual");
                     break;
                 default:
                     Console.WriteLine("Välj utav valen ovan");

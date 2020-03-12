@@ -5,6 +5,7 @@ namespace im_bored
 {
     public class Search
     {
+        // denna funktion låter användaren söka efter objekt
         public static void main()
         {   
 

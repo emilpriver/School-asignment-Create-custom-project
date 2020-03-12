@@ -1,12 +1,11 @@
-1;Batman;Action;Movie;True
-2;Superman;hej;Movie;False
-3;Spiderman;Action;Movie;False
-4;Star Wars;Action;Movie;False
-5;The witcher 3;Action;Game;True
-6;The action 3;Drama;Drama;True
-7;The witcher 3;Action;Game;True
-8;The witcher 3;Drama;action;True
-9;Emil;Movie;Action;False
-10;Test;Movie;Action;False
-11;Test;Movie;Test;False
-12;Orange is the new black;Serie;Action;False
+1;Batman;Action;Movie
+2;Spiderman;Action;Movie
+3;Star Wars;Action;Movie
+4;The witcher 3;Action;Game
+5;The action 3;Drama;Drama
+6;The witcher 3;Action;Game
+7;The witcher 3;Drama;action
+8;Emil;Movie;Action
+9;Test;Movie;Action
+10;Test;Movie;Test
+11;Orange is the new black;Serie;Action

@@ -4,6 +4,7 @@ namespace im_bored
 {
     public class Delete
     {
+        // denna funktion visar alla objekt o låter användaren ta bort en rad i databasen
         public static void main()
         {   
             Database.listObjects();

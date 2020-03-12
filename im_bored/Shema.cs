@@ -4,25 +4,14 @@
 using System;
 
 namespace im_bored {
+    // schema som används för att visa o ändra data
     class Schema {
-        
-        // Default Database item Shema (structure)
         public class DatabaseItem
         {
             public int id { get; set; }
             public string title { get; set; }
             public string genre { get; set; }
             public string category { get; set; }
-        }
-
-        // Change objcet schema structure
-        public class ChangeObject
-        {
-            //  Type is what we want to change. Category ex
-            public string type { get; set; }
-           
-            //  This is the new value that will be used when we update a value
-            public string value { get; set; }
         }
     }
 }

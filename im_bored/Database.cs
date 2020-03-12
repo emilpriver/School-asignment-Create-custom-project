@@ -6,17 +6,11 @@ using System.Linq;
 namespace im_bored
 {
     /**
-    * This is the database class.
-    * This class handels everything with database file. 
-    * Function is:
-    * - Update row
-    * - Delete row(in work)
-    * - Read database and return the database in a format that is simple to work with.
-    * - Write to databse.
+    * I denna class finns information som används för att arbeta med en dastabas.
     */
     class Database
     {
-        // function that check database and create it if database dont exists
+        // initierar dastabasen och skapar den om den inte finns.
         public static void InitDatabase()
         {
             // get path to database
@@ -35,15 +29,18 @@ namespace im_bored
             }
         }
 
-        // Function that returns full path to database file
+        // retunerar full databas fil väg
         public static string GetDatabasePath()
         {
             return Path.GetFullPath("database/main.txt");
         }
         
+        /**
+        * Denna funktionen retunerar alla objekt i database som en array som sedan går att använda.
+        */
         public static Schema.DatabaseItem[] ReadDatabaseArray() 
         {
-            // example of using this function inside progra:
+            // Exempel på hur denna funktion kan användas
             // Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
             // foreach(Schema.DatabaseItem item in data) {
             //     Console.WriteLine(item.title);
@@ -56,23 +53,19 @@ namespace im_bored
             int index = 0;
             foreach (string item in lines)
             {
-                // if line is not empty, run the code
+                // Kollar ifall raden inte är tom
                 if (item.Trim() != "")
                 {
-                    // Create new Database Schema to append information on.
                     Schema.DatabaseItem subData = new Schema.DatabaseItem { };
                     string[] splitedData = item.Split(";");
 
-                    // Build object
                     subData.id = Convert.ToInt32(splitedData[0]);
                     subData.title = splitedData[1].ToString();
                     subData.genre = splitedData[2].ToString();
                     subData.category = splitedData[3].ToString();
 
-                    // Append object to array
                     array[index] = subData;
 
-                    // Higher the value of the index
                     ++index;
                 }
             }
@@ -80,10 +73,9 @@ namespace im_bored
             return array;
         }
 
-        // This function is made to eazy be able to write a new line to datbase file we use.
+        // Denna funktionen skriver till databasen filen med information
         public static int WriteToDatabase(string title, string genre, string category)
         {
-            // Read database and return it to the data abariable.
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
 
             int lastIndexInDatabse = 0;
@@ -91,13 +83,11 @@ namespace im_bored
                 lastIndexInDatabse = data[data.Count() - 1].id;
             }
             
-            // open database file and write information to database by using File.AppendText()
             using (StreamWriter sw = File.AppendText(GetDatabasePath()))
             {
-                // Write the new line
                 sw.WriteLine(
                     String.Join(
-                        Environment.NewLine,
+                        Environment.NewLine, // symboliserar ett retur hopp
                         $"{lastIndexInDatabse + 1};{title};{genre};{category}"
                     )
                 );
@@ -106,9 +96,9 @@ namespace im_bored
             return lastIndexInDatabse;
         }
 
+        // denna funktion ändrar ett objekt genom id, type o vad man vill ändra.
         public static void ChangeObjectInDatabase(int id, string type, string value)
         {
-            // Read database and return it to the data abariable.
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
             
             int index = 0;
@@ -135,7 +125,6 @@ namespace im_bored
                 ++index;
             }
 
-            // Clear database file before write to it
             File.WriteAllText(GetDatabasePath(), String.Empty);
 
             foreach(Schema.DatabaseItem item in data)
@@ -143,19 +132,18 @@ namespace im_bored
                 WriteToDatabase(
                     item.title,
                     item.genre,
-                    item.category,
+                    item.category
                 );
             }
         } 
 
-
+        // Denna funktion tar bort ett objekt i databasen med hjälp av ID
         public static void Delete(int id)
         {
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
 
             var newData = data.Where((val) => val.id != id).ToArray();
 
-            // Clear database file before write to it
             File.WriteAllText(GetDatabasePath(), String.Empty);
 
             foreach (Schema.DatabaseItem item in newData)
@@ -168,6 +156,7 @@ namespace im_bored
             }
         }
 
+        // Denna funktion skapar upp en tabell av alla objekt som är enkelt för användaren att läsa
         public static void listObjects() {
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
 

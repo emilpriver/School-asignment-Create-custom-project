@@ -5,6 +5,9 @@ namespace im_bored
 {
     public class Create
     {
+        /**
+        * Detta objekt skapar ett nytt objekt i databasen genom att användaren får fråga olika frågor.
+        */
         public static void main()
         {   
             string category = askCategory();
@@ -17,7 +20,7 @@ namespace im_bored
 
             Console.Clear();
 
-            int createdObjectId = Database.WriteToDatabase(title, category, genre, false);
+            int createdObjectId = Database.WriteToDatabase(title, category, genre);
             
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
 

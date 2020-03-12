@@ -2,6 +2,13 @@ using System;
 
 namespace im_bored
 {
+    /**
+    * Denna funktion ändrar ett objekt
+    * Först listar den alla objekt.
+    * Sen frågar den vilket id användaren vill ändra
+    * Sen frågar användaren vad användaren vill ändra och till vad.
+    * Objektet ändras sen i databasen
+    */
     public class Change
     {
         public static void main()
