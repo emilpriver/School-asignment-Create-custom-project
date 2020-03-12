@@ -68,7 +68,6 @@ namespace im_bored
                     subData.title = splitedData[1].ToString();
                     subData.genre = splitedData[2].ToString();
                     subData.category = splitedData[3].ToString();
-                    subData.used = splitedData[4].ToString();
 
                     // Append object to array
                     array[index] = subData;
@@ -82,7 +81,7 @@ namespace im_bored
         }
 
         // This function is made to eazy be able to write a new line to datbase file we use.
-        public static int WriteToDatabase(string title, string genre, string category, bool used)
+        public static int WriteToDatabase(string title, string genre, string category)
         {
             // Read database and return it to the data abariable.
             Schema.DatabaseItem[] data = Database.ReadDatabaseArray();
@@ -99,7 +98,7 @@ namespace im_bored
                 sw.WriteLine(
                     String.Join(
                         Environment.NewLine,
-                        $"{lastIndexInDatabse + 1};{title};{genre};{category};{used}"
+                        $"{lastIndexInDatabse + 1};{title};{genre};{category}"
                     )
                 );
             }
@@ -145,7 +144,6 @@ namespace im_bored
                     item.title,
                     item.genre,
                     item.category,
-                    Convert.ToBoolean(item.used)
                 );
             }
         } 
@@ -165,8 +163,7 @@ namespace im_bored
                 WriteToDatabase(
                     item.title,
                     item.genre,
-                    item.category,
-                    Convert.ToBoolean(item.used)
+                    item.category
                 );
             }
         }

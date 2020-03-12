@@ -13,8 +13,6 @@ namespace im_bored {
             public string title { get; set; }
             public string genre { get; set; }
             public string category { get; set; }
-            public int length { get; set; }
-            public string used { get; set; }
         }
 
         // Change objcet schema structure

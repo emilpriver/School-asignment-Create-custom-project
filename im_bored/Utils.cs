@@ -5,13 +5,8 @@ using System.Linq;
 namespace im_bored
 {
     /**
-    * This is the database class.
-    * This class handels everything with database file. 
-    * Function is:
-    * - Update row
-    * - Delete row(in work)
-    * - Read database and return the database in a format that is simple to work with.
-    * - Write to databse.
+    BEKSRIV DENNA
+
     */
     class Utils
     {
