@@ -33,6 +33,7 @@ namespace im_bored
             {
                 Console.WriteLine("Objekt skapades inte. Var god försök igen");
             }
+            
             Console.WriteLine("\r\n");
             Console.WriteLine("\r\n");
             Console.WriteLine("\r\n");

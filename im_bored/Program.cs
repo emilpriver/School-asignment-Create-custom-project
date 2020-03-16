@@ -16,12 +16,15 @@ namespace im_bored
             goToHome(true);
         }
 
+        // funktion som frågar om användaren vill gå hem för att göra mer val
         public static void askToGoHome() {
             Console.WriteLine("Redo att gå hem?");
             Console.ReadLine();
             goToHome(true);
         }
-         public static void goToHome(bool clear)
+
+        // Frågar vad användern gör. om true parsas ner i funktionen clearas consolen
+        public static void goToHome(bool clear)
         {
             if(clear) {
                 Console.Clear();
